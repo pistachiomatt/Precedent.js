@@ -1,0 +1,198 @@
+/*
+  ❤ A good, clean reset.
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+} 
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+  display:block;
+}
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; cursor:pointer; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+input, select { vertical-align:middle; }
+
+:focus { -moz-outline-style:none; }
+::-moz-focus-inner { border:none; padding:0; }
+
+select, input, textarea, button { 
+  font:99% sans-serif;
+  margin:0;
+  -moz-outline-style:none;
+  outline:none;
+}
+
+input, textarea {
+  -moz-box-shadow: none;
+}
+
+textarea { overflow: auto; } /* textarea scrollbars are removed if not necessary in IE */
+
+button {  
+  /* make buttons play nice in IE:    
+     www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+  width: auto; overflow: visible;
+  /* Don't make background colour bleed at rounded corners. */
+  -webkit-background-clip: padding-box;
+}
+
+/* Buttons don't contain selectable text. */
+input[type=button], button {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+input[disabled], button[disabled] { cursor: not-allowed; }
+
+/* normalize monospace sizing 
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+td, td img { vertical-align: top; } 
+
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+img { -ms-interpolation-mode: bicubic; }
+
+h1, h2, h3 { text-rendering: optimizeLegibility; }
+
+
+
+/* 
+  Minimal base styles.
+  Override these in your stylesheet if you so wish.
+*/
+
+body { font:62.5% sans-serif; *font-size:small; }
+
+body, select, input, textarea { 
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
+  color: #444; 
+}
+
+a, a:active, a:visited {
+  color: #607890;
+  -webkit-transition: color .4s ease;
+  -moz-transition: color .4s ease;
+  transition: color .4s ease;
+}
+a:hover { 
+  color: #97b7d2;
+  -webkit-transition-duration: .12s;
+  -moz-transition-duration: .12s;
+  transition-duration: .12s;
+}
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin:0; list-style:none; } 
+
+strong { font-weight: bold; }
+small { font-size: 85%; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+
+/*
+  Helper classes
+*/
+
+/* Hide for both screenreaders and browsers */
+.hidden { display: none; visibility: hidden; } 
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Hidden visually, but readable by screenreaders. */
+.visuallyhidden { 
+  position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* The Magnificent CLEARFIX:  j.mp/bestclearfix 
+   Add class to the _container_ of the floats! 
+*/
+.clear:before, .clear:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;	
+} 
+.clear:after { clear: both; }
+.clear { zoom: 1; }
+
+
+
+/* 
+  print styles
+*/
+ 
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; } 
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title></title>
+    <!-- Lovingly crafted. -->
+    <meta content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <!-- js -->
+    <script src="js/jq.js"></script>
+    <script src="js/easing.js"></script>
+    <script src="js/jquery.oninput.js"></script>
+    <script src="js/jquery.precedent.js"></script>
+    
+    <script>
+    
+      $(document).ready(function(){
+           
+        $("textarea").precedent();
+       
+      });
+    
+    </script>
+    
+    
+    <style>
+    
+    body {
+      font-family: Helvetica, Arial;
+      padding: 100px;
+    }
+    
+    textarea {
+      font-family: Helvetica, Arial;
+      font-size: 14px;
+      padding: 10px;
+      width: 400px;
+      border: solid 1px #aaa;
+      margin: 0;
+      line-height: 1.4;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.1);
+      line-height: 20px;
+    }
+    
+    .placeholder {
+      color: rgba(0,0,0,.3);
+      -webkit-transition: color .3s ease;
+      -webkit-user-drag: none;
+      -moz-user-drag: none;
+      -ms-user-drag: none;
+      user-drag: none;
+      pointer-events: none; /* Let clicks fall through to background. */
+    }
+    .placeholder.focus {
+      color: rgba(0,0,0,.2);
+      -webkit-transition-duration: .15s;
+    }
+    .placeholder.hidden {
+      display: none;
+    }
+    
+    
+    
+    </style>
+  </head>
+  <body>
+  
+    <textarea placeholder="You're receiving this email because you signed up to ABC Widgets" data-semiplacehold>You're receiving this email because </textarea>
+      
+  </body>
+</html>
