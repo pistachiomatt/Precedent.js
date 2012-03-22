@@ -235,7 +235,7 @@
   $.fn.precedent = function(options){
     // Iterate over all the elements and initialise placeholder for them.
     this.filter('input, textarea').each(function() {
-      precendented_elements.push(new Placeholder($(this), options));
+      placeholders.push(new Placeholder($(this), options));
     });
     
     return this; //Don't break jQuery chaining
