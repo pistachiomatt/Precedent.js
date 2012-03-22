@@ -13,6 +13,7 @@
 */
 
 (function($) {
+
   // This represents an object "placeholder"
   var Placeholder = function($element, options){
     
@@ -225,13 +226,51 @@
   
   };
   
+  Placeholder.prototype.cleanUp = function(){
+    //Do Cleaning tasks here
+  };
+  
+  var placeholders = [];
+  
   $.fn.precedent = function(options){
     // Iterate over all the elements and initialise placeholder for them.
     this.filter('input, textarea').each(function() {
-      var placeholder = new Placeholder($(this), options);
+      precendented_elements.push(new Placeholder($(this), options));
     });
     
     return this; //Don't break jQuery chaining
+  };
+  
+  //Cleans up particular elements, use like $('.blah').precendentCleanUp()
+  $.fn.precedentCleanUp = function(options){
+    var matching_indexes = [];
+    var $els = this.filter('input, textarea');
+    
+    //Clean up all the placeholders who have an el in the set of els
+    $.each(placeholders, function(i, placeholder){
+      $.each($els, function(j, el){
+        if(placeholder.$input[0] === el){
+          placeholder.cleanUp();
+          matching_indexes.push(i);
+        }
+      });
+    });
+    
+    //Remove all the ones we cleaned up from the list of placeholders
+    $.each(matching_ids, function(i, index){
+      placeholders = placeholders.splice(index, 1);
+    });
+    
+    return this;
+  };
+  
+  //Cleans up all precedents, use like $.precedentCleanUp()
+  $.precendentCleanUp = function(options){
+    $.each(placeholders, function(i, placeholder){
+      placeholder.cleanUp();
+    });
+    
+    placeholders = [];
   };
   
 })(jQuery);
